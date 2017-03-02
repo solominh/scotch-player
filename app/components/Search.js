@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{Component} from 'react';
 import Autocomplete from 'react-autocomplete';
 
-class Search extends React.Component{
-  handleRenderItem(item, isHighlighted){
+class Search extends Component {
+
+  handleRenderItem(item, isHighlighted) {
     const listStyles = {
       item: {
         padding: '2px 6px',
@@ -28,15 +29,15 @@ class Search extends React.Component{
     return (
       <div className="search">
         <Autocomplete
-         ref="autocomplete"
-         inputProps={{title: "Title"}}
-         value={this.props.autoCompleteValue}
-         items={this.props.tracks}
-         getItemValue={(item) => item.title}
-         onSelect={this.props.handleSelect}
-         onChange={this.props.handleChange}
-         renderItem={this.handleRenderItem.bind(this)}
-       />
+          ref="autocomplete"
+          inputProps={{ title: "Title" }}
+          value={this.props.autoCompleteValue}
+          items={this.props.tracks}
+          getItemValue={(item) => item.title}
+          onSelect={this.props.handleSelect}
+          onChange={this.props.handleChange}
+          renderItem={this.handleRenderItem.bind(this)}
+        />
       </div>
     );
   }
