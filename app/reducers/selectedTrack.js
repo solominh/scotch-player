@@ -11,13 +11,14 @@ export default function (store, action) {
       return action.track;
     }
 
-    case types.PLAY_RANDOM: {
+    case types.RANDOM: {
       const trackLength = store.tracks.length;
       if (trackLength <= 0) return state;
 
-      const randomNumber = Math.floor((Math.random() * trackLength) + 1);
+      const randomNumber = Math.floor((Math.random() * trackLength));
       return store.tracks[randomNumber];
     }
+
   }
 
   return state;

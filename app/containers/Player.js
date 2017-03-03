@@ -2,11 +2,10 @@ import Player from '../components/Player';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
-  moveBackward,
-  moveForward,
+  backward,
+  forward,
   togglePlay,
-  stop,
-  playRandom,
+  random,
 } from '../actions/index';
 
 function mapStateToProps(state) {
@@ -18,11 +17,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      moveBackward,
-      moveForward,
+      backward,
+      forward,
       togglePlay,
-      stop,
-      playRandom,
+      random,
     },
     dispatch);
 }

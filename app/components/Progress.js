@@ -29,8 +29,9 @@ class Progress extends Component {
     }
 
     return (
-      <div>
+      <div className="row">
         <div className="text-center">{`${elapsedTime}/${totalTime}`}</div>
+        {/*<span>{elapsedTime}</span>*/}
         <div className="progress music-progress-bar-wrapper">
           <div className="progress-bar music-progress-bar"
             role="progressbar"
@@ -41,6 +42,7 @@ class Progress extends Component {
             <span className="sr-only">{style.width} Complete</span>
           </div>
         </div>
+        {/*<span>{totalTime}</span>*/}
       </div>
     )
   }

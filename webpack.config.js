@@ -1,4 +1,6 @@
-const webpack = require('webpack'); //to access built-in plugins
+
+
+// const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 
 const config = {
@@ -11,10 +13,18 @@ const config = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader'
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: [['es2015', { modules: false }]],
+          plugins: []
+        }
       }
     ]
-  }
+  },
+  plugins: [
+    // new webpack.optimize.UglifyJsPlugin(),
+  ]
 };
 
 module.exports = config;

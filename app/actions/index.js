@@ -4,6 +4,8 @@ import * as types from '../constants/ActionTypes';
 import { SOUNDCLOUD_CLIENT_ID as CLIENT_ID } from '../constants/APIKeys';
 const BASE_URL = `https://api.soundcloud.com/tracks?client_id=${CLIENT_ID}`;
 
+export * from './playerActions';
+
 
 export function search(term) {
   const url = `${BASE_URL}&q=${term}`;
@@ -35,33 +37,4 @@ export function onSongFinish(audio) {
   }
 }
 
-export function moveBackward() {
-  return {
-    type: types.MOVE_BACKWARD,
-  }
-}
 
-export function moveForward() {
-  return {
-    type: types.MOVE_FORWARD,
-  }
-}
-
-export function togglePlay() {
-  return {
-    type: types.TOGGLE_PLAY,
-  }
-}
-
-export function stop() {
-  return {
-    type: types.STOP,
-
-  }
-}
-
-export function playRandom() {
-  return {
-    type: types.PLAY_RANDOM,
-  }
-}

@@ -20,7 +20,7 @@ export default function (state = initialState, action) {
       }
     }
 
-    case types.MOVE_BACKWARD: {
+    case types.BACKWARD: {
       const {duration, position} = state.trackProgress;
       const {playFromPosition} = state;
       let backwardPosition = position - 1000 * 10;
@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
       }
     }
 
-    case types.MOVE_FORWARD: {
+    case types.FORWARD: {
       let {duration, position} = state.trackProgress;
       let forwardPosition = position + 1000 * 10;
       if (forwardPosition > duration) forwardPosition = duration;
@@ -50,10 +50,6 @@ export default function (state = initialState, action) {
         ...state,
         playStatus
       }
-    }
-
-    case types.STOP: {
-      return initialState;
     }
 
     case types.ON_SONG_PLAYING: {

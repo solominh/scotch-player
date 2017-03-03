@@ -7,7 +7,7 @@
   "scripts": {
     "test": "npm test",
     "start": "electron .",
-    "dev react": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "dev_react": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "build": "webpack --config webpack.config.js",
     "package_window": "electron-packager . --out=./build/ 'ScotchPlayer' --platform=win32 --arch=x64 --asar=true --overwrite=true --icon=./public/img/logo.ico"
   },
