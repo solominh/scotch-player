@@ -1,7 +1,15 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Autocomplete from 'react-autocomplete';
 
 class Search extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: '',
+    }
+  }
 
   handleRenderItem(item, isHighlighted) {
     const listStyles = {
@@ -25,17 +33,31 @@ class Search extends Component {
       >{item.title}</div>
     )
   }
+
+  onInputChange(event, value) {
+    this.setState({ value });
+    this.props.search(value);
+  }
+
+  onItemSelect(value, item) {
+    this.setState({ value });
+    this.props.selectSong(item);
+  }
+
   render() {
     return (
       <div className="search">
         <Autocomplete
           ref="autocomplete"
-          inputProps={{ title: "Title" }}
-          value={this.props.autoCompleteValue}
+          inputProps={{
+            title: "Title",
+            placeholder: "Search for songs",
+          }}
+          value={this.state.value}
           items={this.props.tracks}
           getItemValue={(item) => item.title}
-          onSelect={this.props.handleSelect}
-          onChange={this.props.handleChange}
+          onSelect={this.onItemSelect.bind(this)}
+          onChange={this.onInputChange.bind(this)}
           renderItem={this.handleRenderItem.bind(this)}
         />
       </div>
