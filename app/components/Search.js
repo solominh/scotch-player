@@ -11,7 +11,7 @@ class Search extends Component {
     }
   }
 
-  handleRenderItem(item, isHighlighted) {
+  handleRenderItem = (item, isHighlighted) => {
     const listStyles = {
       item: {
         padding: '2px 6px',
@@ -34,12 +34,12 @@ class Search extends Component {
     )
   }
 
-  onInputChange(event, value) {
+  onInputChange = (event, value) => {
     this.setState({ value });
     this.props.search(value);
   }
 
-  onItemSelect(value, item) {
+  onItemSelect = (value, item) => {
     this.setState({ value });
     this.props.selectSong(item);
   }
@@ -56,13 +56,18 @@ class Search extends Component {
           value={this.state.value}
           items={this.props.tracks}
           getItemValue={(item) => item.title}
-          onSelect={this.onItemSelect.bind(this)}
-          onChange={this.onInputChange.bind(this)}
-          renderItem={this.handleRenderItem.bind(this)}
+          onSelect={this.onItemSelect}
+          onChange={this.onInputChange}
+          renderItem={this.handleRenderItem}
         />
       </div>
     );
   }
+}
+
+const types = React.PropTypes;
+Search.propTypes = {
+  tracks: types.arrayOf(types.object),
 }
 
 export default Search

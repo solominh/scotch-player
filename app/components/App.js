@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import axio from 'axios';
 
 
-import Details from '../containers/Details';
+
 import Player from '../containers/Player';
-import Sound from '../containers/Sound';
-import Progress from '../containers/Progress';
 import Search from '../containers/Search';
-import Playlist from '../containers/Playlist';
 import Footer from '../components/Footer';
-
 
 
 class App extends Component {
@@ -36,10 +31,7 @@ class App extends Component {
     return (
       <div className="scotch_music" style={scotchStyle}>
         <Search />
-        <Details />
-        <Sound />
         <Player />
-        <Progress />
         <Footer />
       </div>
     );

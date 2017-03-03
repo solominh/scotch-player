@@ -21,4 +21,9 @@ class Playlist extends Component {
 
 }
 
+const types = React.PropTypes;
+Playlist.propTypes = {
+  tracks: types.arrayOf(types.object),
+}
+
 export default Playlist;

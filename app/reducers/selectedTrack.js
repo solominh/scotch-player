@@ -19,6 +19,22 @@ export default function (store, action) {
       return store.tracks[randomNumber];
     }
 
+    case types.STEP_BACKWARD: {
+      const trackLength = store.tracks.length;
+      if (trackLength <= 0) return state;
+
+      const randomNumber = Math.floor((Math.random() * trackLength));
+      return store.tracks[randomNumber];
+    }
+
+    case types.STEP_FORWARD: {
+      const trackLength = store.tracks.length;
+      if (trackLength <= 0) return state;
+
+      const randomNumber = Math.floor((Math.random() * trackLength));
+      return store.tracks[randomNumber];
+    }
+
   }
 
   return state;

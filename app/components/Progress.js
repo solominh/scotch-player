@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Progress extends Component {
+class Progress extends React.PureComponent {
   constructor(props) {
     super(props);
   }
@@ -47,6 +47,12 @@ class Progress extends Component {
     )
   }
 
+}
+
+const types = React.PropTypes;
+Progress.PropTypes = {
+  duration: types.number.isRequired,
+  position: types.number.isRequired,
 }
 
 export default Progress

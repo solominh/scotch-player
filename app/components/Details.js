@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 
-class Details extends Component {
+class Details extends React.PureComponent {
 
   render() {
-    const title = this.props.track ? this.props.track.title : 'unknown';
+    if (!this.props.track) {
+      return null;
+    }
+
     return (
       <div className="details">
-        <h3>{title}</h3>
+        <h3>{this.props.track.title}</h3>
       </div>
     )
   }
 
+}
+
+const types = React.PropTypes;
+Details.PropTypes = {
+  track: types.object,
 }
 
 export default Details

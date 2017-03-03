@@ -2,25 +2,23 @@ import Player from '../components/Player';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
-  backward,
-  forward,
-  togglePlay,
   random,
+  stepBackward,
+  stepForward,
 } from '../actions/index';
 
 function mapStateToProps(state) {
   return {
-    playStatus: state.selectedTrackStatus.playStatus,
+    track: state.selectedTrack,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      backward,
-      forward,
-      togglePlay,
       random,
+      stepBackward,
+      stepForward,
     },
     dispatch);
 }
