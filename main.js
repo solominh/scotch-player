@@ -13,7 +13,7 @@ let mainWindow;
 function createWindow() {
   //Browser window options
   const browserOptions = {
-    width: 500,
+    width: 700,
     height: 500,
     maximizeable: false,
     icon: 'public/img/logo.png'
@@ -24,7 +24,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-  mainWindow.openDevTools();
+  // mainWindow.openDevTools();
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();

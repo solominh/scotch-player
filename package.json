@@ -1,15 +1,15 @@
 {
-  "name": "scotch-player",
-  "productName": "Scotch Player",
+  "name": "soundcloud_player",
+  "productName": "SoundCloud Player",
   "version": "1.0.0",
-  "description": "Scotch Demo Player",
+  "description": "SoundCloud player demo",
   "main": "main.js",
   "scripts": {
     "test": "npm test",
     "start": "electron .",
     "dev_react": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "build": "webpack --config webpack.config.js",
-    "package_window": "electron-packager . --out=./build/ 'ScotchPlayer' --platform=win32 --arch=x64 --asar=true --overwrite=true --icon=./public/img/logo.ico"
+    "pack_win": "electron-packager . --out=./build/ 'SoundCloud Player' --platform=win32 --arch=x64 --asar=true --overwrite=true --icon=./public/img/logo.ico"
   },
   "repository": {
     "type": "git",
