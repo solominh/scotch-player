@@ -14,14 +14,14 @@ class PlayerButtons extends React.PureComponent {
     });
 
     return (
-      <div className="player">
-        <button onClick={this.props.random}><i className="fa fa-random"></i></button>
-        <button onClick={this.props.stepBackward}><i className="fa fa-step-backward"></i></button>
-        <button onClick={this.props.backward}><i className="fa fa-backward"></i></button>
-        <button onClick={this.props.togglePlay}><i className={playPauseClassName}></i></button>
-        <button onClick={this.props.forward}><i className="fa fa-forward"></i></button>
-        <button onClick={this.props.stepForward}><i className="fa fa-step-forward"></i></button>
-        <button onClick={this.props.loop}><i className="fa fa-repeat"></i></button>
+      <div className="player-buttons">
+        <button className="player-btn" onClick={this.props.random}><i className="fa fa-random"></i></button>
+        <button className="player-btn" onClick={this.props.stepBackward}><i className="fa fa-step-backward"></i></button>
+        <button className="player-btn" onClick={this.props.backward}><i className="fa fa-backward"></i></button>
+        <button className="player-btn" onClick={this.props.togglePlay}><i className={playPauseClassName}></i></button>
+        <button className="player-btn" onClick={this.props.forward}><i className="fa fa-forward"></i></button>
+        <button className="player-btn" onClick={this.props.stepForward}><i className="fa fa-step-forward"></i></button>
+        <button className="player-btn" onClick={this.props.loop}><i className="fa fa-repeat"></i></button>
       </div>
     )
   }

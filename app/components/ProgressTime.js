@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Progress extends React.PureComponent {
+class ProgressTime extends React.PureComponent {
   constructor(props) {
     super(props);
   }
@@ -21,28 +21,11 @@ class Progress extends React.PureComponent {
   render() {
     const totalTime = this.formatMilliseconds(this.props.duration);
     const elapsedTime = this.formatMilliseconds(this.props.position);
-    let position = (this.props.position / this.props.duration) || 0;
-    position *= 100;
 
-    const style = {
-      width: `${position}%`,
-    }
 
     return (
-      <div className="row">
-        <div className="text-center">{`${elapsedTime}/${totalTime}`}</div>
-        {/*<span>{elapsedTime}</span>*/}
-        <div className="progress music-progress-bar-wrapper">
-          <div className="progress-bar music-progress-bar"
-            role="progressbar"
-            aria-valuenow={position}
-            aria-valuemin="0"
-            aria-valuemax="100"
-            style={style}>
-            <span className="sr-only">{style.width} Complete</span>
-          </div>
-        </div>
-        {/*<span>{totalTime}</span>*/}
+      <div className="progress-time">
+        <div>{`${elapsedTime}/${totalTime}`}</div>
       </div>
     )
   }
@@ -50,9 +33,26 @@ class Progress extends React.PureComponent {
 }
 
 const types = React.PropTypes;
-Progress.PropTypes = {
+ProgressTime.PropTypes = {
   duration: types.number.isRequired,
   position: types.number.isRequired,
 }
 
-export default Progress
+export default ProgressTime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

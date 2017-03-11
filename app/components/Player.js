@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import axio from 'axios';
 
 
-import Details from '../components/Details';
 import PlayerButtons from '../components/PlayerButtons';
 import Sound from '../components/Sound';
-import Progress from '../components/Progress';
-
+import ProgressBar from '../components/ProgressBar';
+import ProgressTime from '../components/ProgressTime';
 
 
 class Player extends Component {
@@ -86,34 +85,13 @@ class Player extends Component {
     })
   }
 
-  getStyles() {
-    const artworkURL = this.props.track.artwork_url || '';
-    if (!this.artworkURL || this.artworkURL !== artworkURL) {
-      const smallArtworkURL = artworkURL.replace(/large/, 't500x500');
-      this.artworkURL = artworkURL;
-      this.scotchStyle = {
-        width: '500px',
-        height: '500px',
-        backgroundImage: `linear-gradient(
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
-      ), url(${smallArtworkURL})`,
-      }
-    }
-    return this.scotchStyle;
-  }
-
   render() {
     if (!this.props.track) {
       return null;
     }
 
     return (
-      <div className="scotch_music" style={this.getStyles()}>
-
-        <Details
-          track={this.props.track}
-        />
+      <div className="player">
         <Sound
           track={this.props.track}
           playStatus={this.state.playStatus}
@@ -121,19 +99,25 @@ class Player extends Component {
           onPlaying={this.onPlaying}
           onFinishedPlaying={this.onFinishedPlaying}
         />
-        <PlayerButtons
-          playStatus={this.state.playStatus}
-          random={this.random}
-          loop={this.loop}
-          backward={this.backward}
-          forward={this.forward}
-          stepBackward={this.stepBackward}
-          stepForward={this.stepForward}
-          togglePlay={this.togglePlay}
-        />
-        <Progress
+        <ProgressBar
           {...this.state.trackProgress}
         />
+
+        <div className="row-bottom">
+          <PlayerButtons
+            playStatus={this.state.playStatus}
+            random={this.random}
+            loop={this.loop}
+            backward={this.backward}
+            forward={this.forward}
+            stepBackward={this.stepBackward}
+            stepForward={this.stepForward}
+            togglePlay={this.togglePlay}
+          />
+          <ProgressTime
+            {...this.state.trackProgress}
+          />
+        </div>
 
       </div>
     );
