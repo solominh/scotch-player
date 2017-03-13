@@ -25,6 +25,56 @@ class Player extends Component {
 
   }
 
+  togglePlay = () => {
+    console.log(this)
+    this.setState((prevState, props) => {
+      const playStatus = prevState.playStatus === 'PLAYING' ? 'PAUSED' : 'PLAYING';
+      return { playStatus }
+    })
+
+    if (this.props.togglePlay) this.props.togglePlay()
+  }
+
+  backward = () => {
+    this.setState((prevState, props) => {
+      const { duration, position } = prevState.trackProgress;
+      const { playFromPosition } = prevState;
+      let backwardPosition = position - 1000 * 10;
+      if (backwardPosition < 0) backwardPosition = 0;
+      if (backwardPosition === playFromPosition) backwardPosition -= 1;
+      return { playFromPosition: backwardPosition }
+    })
+
+    if (this.props.backward) this.props.backward()
+  }
+
+  forward = () => {
+    this.setState((prevState, props) => {
+      let { duration, position } = prevState.trackProgress;
+      let forwardPosition = position + 1000 * 10;
+      if (forwardPosition > duration) forwardPosition = duration;
+      return { playFromPosition: forwardPosition }
+    })
+
+    if (this.props.forward) this.props.forward()
+  }
+
+  stepBackward = () => {
+    if (this.props.stepBackward) this.props.stepBackward()
+  }
+
+  stepForward = () => {
+    if (this.props.stepForward) this.props.stepForward()
+  }
+
+  random = () => {
+    if (this.props.random) this.props.random()
+  }
+
+  loop = () => {
+    if (this.props.loop) this.props.loop()
+  }
+
   onPlaying = (audio) => {
     this.setState((prevState, props) => {
       const { duration, position } = audio;
@@ -39,50 +89,6 @@ class Player extends Component {
 
   onFinishedPlaying = (audio) => {
 
-  }
-
-  random = () => {
-    this.props.random();
-  }
-
-  loop = () => {
-
-  }
-
-  backward = () => {
-    this.setState((prevState, props) => {
-      const { duration, position } = prevState.trackProgress;
-      const { playFromPosition } = prevState;
-      let backwardPosition = position - 1000 * 10;
-      if (backwardPosition < 0) backwardPosition = 0;
-      if (backwardPosition === playFromPosition) backwardPosition -= 1;
-      return { playFromPosition: backwardPosition }
-    })
-  }
-
-  forward = () => {
-    this.setState((prevState, props) => {
-      let { duration, position } = prevState.trackProgress;
-      let forwardPosition = position + 1000 * 10;
-      if (forwardPosition > duration) forwardPosition = duration;
-      return { playFromPosition: forwardPosition }
-    })
-  }
-
-  stepBackward = () => {
-    this.props.stepBackward()
-  }
-
-  stepForward = () => {
-    this.props.stepForward();
-  }
-
-  togglePlay = () => {
-    console.log(this)
-    this.setState((prevState, props) => {
-      const playStatus = prevState.playStatus === 'PLAYING' ? 'PAUSED' : 'PLAYING';
-      return { playStatus }
-    })
   }
 
   render() {
@@ -128,6 +134,13 @@ class Player extends Component {
 const types = React.PropTypes;
 Player.propTypes = {
   track: types.object,
+  togglePlay: types.func,
+  backward: types.func,
+  forward: types.func,
+  stepBackward: types.func,
+  stepForward: types.func,
+  random: types.func,
+  loop: types.func,
 }
 
 export default Player;

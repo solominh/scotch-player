@@ -21,7 +21,7 @@ class PlayerButtons extends React.PureComponent {
         <button className="player-btn" onClick={this.props.togglePlay}><i className={playPauseClassName}></i></button>
         <button className="player-btn" onClick={this.props.forward}><i className="fa fa-forward"></i></button>
         <button className="player-btn" onClick={this.props.stepForward}><i className="fa fa-step-forward"></i></button>
-        <button className="player-btn" onClick={this.props.loop}><i className="fa fa-repeat"></i></button>
+        <button className="player-btn" onClick={this.props.loop}><i className="fa fa-refresh"></i></button>
       </div>
     )
   }
