@@ -1,0 +1,90 @@
+.app{
+  max-width:800px;
+  min-width:500px;
+}
+
+.search div, .search input {
+  width: 100%;
+  z-index: 100;
+}
+
+.search input {
+  border: none;
+  border-bottom: 2px solid #2582BE;
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+}
+
+
+.main-player{
+  background:rgba(0, 0, 0, 0.5);
+}
+
+.player{
+  background:black;
+}
+
+
+.details{
+  width:100%;
+  padding:15px;
+}
+
+.detail-right .title{
+  color:#E5E5E5;
+  font-size:2em;
+}
+
+.progress-bar-music {
+  background: #5E5E5E!important; 
+  border:none; 
+  border-radius: none;
+  height: 5px!important;
+  margin-bottom:0px!important;
+}
+
+.progress-bar-custom {
+  background: #2582BE;
+}
+
+.detail-left{
+  width:250px;
+  height:250px;
+}
+
+.detail-right h3{
+
+}
+
+
+.row-bottom{
+  padding:5px 15px;
+}
+
+.player-buttons{
+  display:inline-block;
+  line-height:1.5em;
+  vertical-align: middle;
+  padding-top:3px;
+}
+
+.player-btn{
+    font-size:20px;
+    background:none;
+    color: #E5E5E5;
+    border:none;
+}
+
+.player-btn:hover{
+  color:#2582BE;
+}
+
+.progress-time{
+  font-size:18px;
+  color:#E5E5E5;
+  display: inline-block;
+  line-height:1.5em;
+  vertical-align: middle;
+  margin-left: 15px;
+}

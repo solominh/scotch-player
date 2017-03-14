@@ -1,0 +1,21 @@
+{
+  // Extension ID: knldjmfmopnpolahpmmgbagdohdnhkik
+  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcBHwzDvyBQ6bDppkIs9MP4ksKqCMyXQ/A52JivHZKh4YO/9vJsT3oaYhSpDCE9RPocOEQvwsHsFReW2nUEc6OLLyoCFFxIb7KkLGsmfakkut/fFdNJYh0xOTbSN8YvLWcqph09XAY2Y/f0AL7vfO1cuCqtkMt8hFrBGWxDdf9CQIDAQAB",
+  "name": "Music Player",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Play music from SoundCloud.",
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": {
+    "128": "public/img/logo.png"
+  },
+  "permissions": [
+    "alwaysOnTopWindows",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
