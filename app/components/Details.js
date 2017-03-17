@@ -14,7 +14,7 @@ class Details extends React.PureComponent {
 
 
     return (
-      <div className="details">
+      <div className="detail">
         <div className="detail-left" >
           <img src={smallArtworkURL} className="img-responsive" alt='artwork' />
         </div>
