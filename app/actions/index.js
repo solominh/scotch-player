@@ -16,10 +16,11 @@ export function search(term) {
   }
 }
 
-export function selectSong(track) {
+export function selectSong(tracks, selectedTrack) {
   return {
     type: types.SELECT_SONG,
-    track: track,
+    tracks,
+    selectedTrack,
   }
 }
 

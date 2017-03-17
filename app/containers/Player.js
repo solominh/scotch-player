@@ -10,11 +10,8 @@ import {
   onFinishedPlaying,
 } from '../actions/index';
 
-function mapStateToProps(state) {
-  return {
-    track: state.selectedTrack,
-    playStatus: state.playStatus,
-  }
+function mapStateToProps({playerData}) {
+  return playerData;
 }
 
 function mapDispatchToProps(dispatch) {

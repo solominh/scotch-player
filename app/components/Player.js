@@ -85,14 +85,14 @@ class Player extends Component {
   }
 
   render() {
-    if (!this.props.track) {
+    if (!this.props.selectedTrack) {
       return null;
     }
 
     return (
       <div className="player">
         <Sound
-          track={this.props.track}
+          track={this.props.selectedTrack}
           playStatus={this.props.playStatus}
           playFromPosition={this.state.playFromPosition}
           onPlaying={this.onPlaying}
@@ -126,7 +126,9 @@ class Player extends Component {
 
 const types = React.PropTypes;
 Player.propTypes = {
-  track: types.object,
+  tracks: types.arrayOf(types.object),
+  selectedTrack: types.object,
+  playStatus: types.string,
   togglePlay: types.func,
   backward: types.func,
   forward: types.func,

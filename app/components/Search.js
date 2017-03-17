@@ -41,7 +41,7 @@ class Search extends Component {
 
   onItemSelect = (value, item) => {
     this.setState({ value });
-    this.props.selectSong(item);
+    this.props.selectSong(this.props.tracks, item);
   }
 
   render() {
@@ -69,7 +69,7 @@ class Search extends Component {
               position: 'fixed',
               overflow: 'auto',
               maxHeight: '50%', // TODO: don't cheat, let it flow to the bottom
-              width:'auto'
+              width: 'auto'
             }
           }
         />

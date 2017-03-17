@@ -2,9 +2,11 @@ import Details from '../components/Details';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-function mapStateToProps(state) {
+function mapStateToProps({ playerData }) {
+  const { tracks, selectedTrack } = playerData
   return {
-    track: state.selectedTrack,
+    tracks,
+    selectedTrack,
   }
 }
 

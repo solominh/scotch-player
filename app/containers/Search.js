@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { search, selectSong } from '../actions/index';
 
-function mapStateToProps(state) {
+function mapStateToProps({ searchedTracks }) {
   return {
-    tracks: state.tracks,
+    tracks: searchedTracks,
   }
 }
 
