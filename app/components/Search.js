@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Autocomplete from 'react-autocomplete';
 
 class Search extends Component {
@@ -78,9 +78,8 @@ class Search extends Component {
   }
 }
 
-const types = React.PropTypes;
 Search.propTypes = {
-  tracks: types.arrayOf(types.object),
+  tracks: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default Search

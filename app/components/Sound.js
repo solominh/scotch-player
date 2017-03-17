@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactSound from 'react-sound';
 import { SOUNDCLOUD_CLIENT_ID as CLIENT_ID } from '../constants/APIKeys';
 
@@ -28,14 +28,12 @@ class Sound extends React.PureComponent {
   }
 }
 
-const types = React.PropTypes;
-
 Sound.propTypes = {
-  track: types.object,
-  playStatus: types.string,
-  playFromPosition:types.number,
-  onPlaying: types.func,
-  onFinishedPlaying: types.func,
+  track: PropTypes.object,
+  playStatus: PropTypes.string,
+  playFromPosition: PropTypes.number,
+  onPlaying: PropTypes.func,
+  onFinishedPlaying: PropTypes.func,
 }
 
 

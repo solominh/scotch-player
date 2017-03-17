@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class ProgressBar extends React.PureComponent {
   constructor(props) {
@@ -28,10 +28,9 @@ class ProgressBar extends React.PureComponent {
   }
 }
 
-const types = React.PropTypes;
 ProgressBar.PropTypes = {
-  duration: types.number.isRequired,
-  position: types.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  position: PropTypes.number.isRequired,
 }
 
 export default ProgressBar

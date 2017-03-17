@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class ProgressTime extends React.PureComponent {
   constructor(props) {
@@ -32,10 +32,9 @@ class ProgressTime extends React.PureComponent {
 
 }
 
-const types = React.PropTypes;
 ProgressTime.PropTypes = {
-  duration: types.number.isRequired,
-  position: types.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  position: PropTypes.number.isRequired,
 }
 
 export default ProgressTime

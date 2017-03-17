@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Details extends React.PureComponent {
 
@@ -27,10 +27,9 @@ class Details extends React.PureComponent {
 
 }
 
-const types = React.PropTypes;
 Details.PropTypes = {
-  tracks: types.arrayOf(types.object),
-  selectedTrack: types.object,
+  tracks: PropTypes.arrayOf(PropTypes.object),
+  selectedTrack: PropTypes.object,
 }
 
 export default Details

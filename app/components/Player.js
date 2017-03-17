@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,PropTypes } from 'react';
 import axio from 'axios';
 
 
@@ -97,13 +97,12 @@ class Player extends Component {
 }
 
 
-const types = React.PropTypes;
 Player.propTypes = {
-  tracks: types.arrayOf(types.object),
-  selectedTrack: types.object,
-  playStatus: types.string,
-  backward: types.func,
-  forward: types.func,
+  tracks: PropTypes.arrayOf(PropTypes.object),
+  selectedTrack: PropTypes.object,
+  playStatus: PropTypes.string,
+  backward: PropTypes.func,
+  forward: PropTypes.func,
 }
 
 export default Player;

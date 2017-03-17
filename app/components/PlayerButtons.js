@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ClassNames from 'classnames';
 
 class PlayerButtons extends React.PureComponent {
@@ -28,16 +28,15 @@ class PlayerButtons extends React.PureComponent {
 
 }
 
-const types = React.PropTypes;
 PlayerButtons.propTypes = {
-  playStatus: types.string,
-  random: types.func,
-  loop: types.func,
-  backward: types.func,
-  forward: types.func,
-  stepBackward: types.func,
-  stepForward: types.func,
-  togglePlay: types.func,
+  playStatus: PropTypes.string,
+  random: PropTypes.func,
+  loop: PropTypes.func,
+  backward: PropTypes.func,
+  forward: PropTypes.func,
+  stepBackward: PropTypes.func,
+  stepForward: PropTypes.func,
+  togglePlay: PropTypes.func,
 }
 
 export default PlayerButtons
