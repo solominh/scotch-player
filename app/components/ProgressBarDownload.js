@@ -8,7 +8,6 @@ class ProgressBarDownload extends React.PureComponent {
   render() {
     let downloadPosition = (this.props.bytesLoaded / this.props.bytesTotal) || 0;
     downloadPosition *= 100;
-    console.log(downloadPosition)
 
     const downloadStyle = {
       width: `${downloadPosition}%`,
