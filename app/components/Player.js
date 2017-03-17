@@ -20,8 +20,6 @@ class Player extends Component {
         position: 0,
       },
     }
-
-
   }
 
   togglePlay = () => {
@@ -81,7 +79,7 @@ class Player extends Component {
   }
 
   onFinishedPlaying = (audio) => {
-    this.props.onFinishedPlaying()
+    if(this.props.onFinishedPlaying) this.props.onFinishedPlaying()
   }
 
   render() {

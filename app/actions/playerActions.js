@@ -20,7 +20,7 @@ export function togglePlay() {
 
 export function stepBackward() {
   return {
-    type: types.STEP_FORWARD,
+    type: types.STEP_BACKWARD,
   }
 }
 

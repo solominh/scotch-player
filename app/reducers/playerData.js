@@ -21,37 +21,46 @@ export default function (state = initialState, action) {
     }
 
     case types.RANDOM: {
-      const {tracks} = state;
+      const { tracks, selectedTrack } = state;
       if (tracks.length <= 0) return state;
 
-      const randomNumber = Math.floor((Math.random() * tracks.length));
+      let randomNumber;
+      while (true) {
+        randomNumber = Math.floor((Math.random() * tracks.length));
+        if (selectedTrack !== tracks[randomNumber]) break;
+      }
+
       return {
         ...state,
-        selectedTrack: state.tracks[randomNumber],
+        selectedTrack: tracks[randomNumber],
         playStatus: 'PLAYING',
       }
     }
 
     case types.STEP_BACKWARD: {
-      const {tracks} = state;
+      const { tracks, selectedTrack } = state;
       if (tracks.length <= 0) return state;
 
-      const randomNumber = Math.floor((Math.random() * tracks.length));
+      const selectedTrackIndex = tracks.findIndex(track => track.id === selectedTrack.id);
+      if (selectedTrackIndex <= 0) return state;
+
       return {
         ...state,
-        selectedTrack: state.tracks[randomNumber],
+        selectedTrack: tracks[selectedTrackIndex - 1],
         playStatus: 'PLAYING',
       }
     }
 
     case types.STEP_FORWARD: {
-      const {tracks} = state;
+      const { tracks, selectedTrack } = state;
       if (tracks.length <= 0) return state;
 
-      const randomNumber = Math.floor((Math.random() * tracks.length));
+      const selectedTrackIndex = tracks.findIndex(track => track.id === selectedTrack.id);
+      if (selectedTrackIndex >= tracks.length - 1) return state;
+
       return {
         ...state,
-        selectedTrack: state.tracks[randomNumber],
+        selectedTrack: tracks[selectedTrackIndex + 1],
         playStatus: 'PLAYING',
       }
     }
