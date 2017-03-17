@@ -9,7 +9,7 @@ class Details extends React.PureComponent {
     }
 
     const track = this.props.track;
-    const artworkURL = (track ? track.artwork_url : '') || '';
+    const artworkURL = (track ? track.artwork_url : '') || './public/img/soundcloud.png';
     const smallArtworkURL = artworkURL.replace(/large/, 't500x500');
     
 

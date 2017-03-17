@@ -12,5 +12,5 @@ export const RANDOM = 'RANDOM';
 export const LOOP = 'LOOP';
 
 
-export const ON_SONG_PLAYING = 'ON_SONG_PLAYING';
-export const ON_SONG_FINISH = 'ON_SONG_FINISH';
+export const ON_PLAYING = 'ON_SONG_PLAYING';
+export const ON_FINISHED_PLAYING = 'ON_SONG_FINISH';

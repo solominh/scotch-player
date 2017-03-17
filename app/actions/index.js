@@ -23,16 +23,16 @@ export function selectSong(track) {
   }
 }
 
-export function onSongPlaying(audio) {
+export function onPlaying(audio) {
   return {
-    type: types.ON_SONG_PLAYING,
+    type: types.ON_PLAYING,
     audio,
   }
 }
 
-export function onSongFinish(audio) {
+export function onFinishedPlaying(audio) {
   return {
-    type: types.ON_SONG_FINISH,
+    type: types.ON_FINISHED_PLAYING,
     audio,
   }
 }

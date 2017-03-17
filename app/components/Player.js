@@ -14,7 +14,6 @@ class Player extends Component {
     super(props);
 
     this.state = {
-      playStatus: 'PLAYING',
       playFromPosition: 0,
       trackProgress: {
         duration: 0,
@@ -26,12 +25,6 @@ class Player extends Component {
   }
 
   togglePlay = () => {
-    console.log(this)
-    this.setState((prevState, props) => {
-      const playStatus = prevState.playStatus === 'PLAYING' ? 'PAUSED' : 'PLAYING';
-      return { playStatus }
-    })
-
     if (this.props.togglePlay) this.props.togglePlay()
   }
 
@@ -88,7 +81,7 @@ class Player extends Component {
   }
 
   onFinishedPlaying = (audio) => {
-
+    this.props.onFinishedPlaying()
   }
 
   render() {
@@ -100,7 +93,7 @@ class Player extends Component {
       <div className="player">
         <Sound
           track={this.props.track}
-          playStatus={this.state.playStatus}
+          playStatus={this.props.playStatus}
           playFromPosition={this.state.playFromPosition}
           onPlaying={this.onPlaying}
           onFinishedPlaying={this.onFinishedPlaying}
@@ -111,7 +104,7 @@ class Player extends Component {
 
         <div className="row-bottom">
           <PlayerButtons
-            playStatus={this.state.playStatus}
+            playStatus={this.props.playStatus}
             random={this.random}
             loop={this.loop}
             backward={this.backward}

@@ -5,11 +5,15 @@ import {
   random,
   stepBackward,
   stepForward,
+  togglePlay,
+  onPlaying,
+  onFinishedPlaying,
 } from '../actions/index';
 
 function mapStateToProps(state) {
   return {
     track: state.selectedTrack,
+    playStatus: state.playStatus,
   }
 }
 
@@ -19,6 +23,9 @@ function mapDispatchToProps(dispatch) {
       random,
       stepBackward,
       stepForward,
+      togglePlay,
+      onPlaying,
+      onFinishedPlaying,
     },
     dispatch);
 }
