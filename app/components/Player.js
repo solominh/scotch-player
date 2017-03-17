@@ -96,7 +96,7 @@ class Player extends Component {
           onLoading={this.onLoading}
           onPlaying={this.onPlaying}
           onFinishedPlaying={this.onFinishedPlaying}
-          volumn={50}
+          volume={10}
         />
 
         <div className="progress-bar-music">
