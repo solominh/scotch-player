@@ -6,22 +6,22 @@ class ProgressBar extends React.PureComponent {
   }
 
   render() {
-    let position = (this.props.position / this.props.duration) || 0;
-    position *= 100;
+    let playPosition = (this.props.position / this.props.duration) || 0;
+    playPosition *= 100;
 
-    const style = {
-      width: `${position}%`,
+    const playStyle = {
+      width: `${playPosition}%`,
     }
 
     return (
-      <div className="progress progress-bar-music">
-        <div className="progress-bar progress-bar-custom"
+      <div className="progress progress-bar-container">
+        <div className="progress-bar progress-bar-player"
           role="progressbar"
-          aria-valuenow={position}
+          aria-valuenow={playPosition}
           aria-valuemin="0"
           aria-valuemax="100"
-          style={style}>
-          <span className="sr-only">{style.width} Complete</span>
+          style={playStyle}>
+          <span className="sr-only">{playStyle.width} Playing complete</span>
         </div>
       </div>
     )
@@ -29,8 +29,8 @@ class ProgressBar extends React.PureComponent {
 }
 
 ProgressBar.PropTypes = {
-  duration: PropTypes.number.isRequired,
-  position: PropTypes.number.isRequired,
+  duration: PropTypes.number,
+  position: PropTypes.number,
 }
 
 export default ProgressBar

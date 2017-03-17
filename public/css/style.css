@@ -36,16 +36,40 @@
   font-size:2em;
 }
 
-.progress-bar-music {
-  background: #5E5E5E!important; 
+.progress-bar-music{
+  background: rgba(255,255,255,.2);
+  position:relative;
+  height:5px;
+}
+
+#progress-bar-player{
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+}
+
+#progress-bar-download{
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+}
+
+.progress-bar-container {
+  background: rgba(0,0,0,0)!important; 
   border:none; 
   border-radius: none;
   height: 5px!important;
   margin-bottom:0px!important;
 }
 
-.progress-bar-custom {
+.progress-bar-container .progress-bar-player {
   background: #2582BE;
+}
+
+.progress-bar-container .progress-bar-download{
+  background: rgba(255,255,255,.4);
 }
 
 .detail-left{

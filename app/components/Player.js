@@ -1,12 +1,14 @@
-import React, { Component,PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import axio from 'axios';
 
 
 import PlayerButtons from '../containers/PlayerButtons';
-import Sound from '../components/Sound';
+import ReactSound from 'react-sound';
 import ProgressBar from '../components/ProgressBar';
+import ProgressBarDownload from '../components/ProgressBarDownload'
 import ProgressTime from '../components/ProgressTime';
 
+import { SOUNDCLOUD_CLIENT_ID as CLIENT_ID } from '../constants/APIKeys';
 
 class Player extends Component {
 
@@ -15,6 +17,10 @@ class Player extends Component {
 
     this.state = {
       playFromPosition: 0,
+      downloadProgress: {
+        bytesLoaded: 0,
+        bytesTotal: 0,
+      },
       trackProgress: {
         duration: 0,
         position: 0,
@@ -31,8 +37,6 @@ class Player extends Component {
       if (backwardPosition === playFromPosition) backwardPosition -= 1;
       return { playFromPosition: backwardPosition }
     })
-
-    if (this.props.backward) this.props.backward()
   }
 
   forward = () => {
@@ -42,8 +46,17 @@ class Player extends Component {
       if (forwardPosition > duration) forwardPosition = duration;
       return { playFromPosition: forwardPosition }
     })
+  }
 
-    if (this.props.forward) this.props.forward()
+  onLoading = ({ bytesLoaded, bytesTotal, duration }) => {
+    this.setState((prevState, props) => {
+      return {
+        downloadProgress: {
+          bytesLoaded,
+          bytesTotal,
+        }
+      }
+    })
   }
 
   onPlaying = (audio) => {
@@ -62,6 +75,12 @@ class Player extends Component {
     if (this.props.onFinishedPlaying) this.props.onFinishedPlaying()
   }
 
+  getTrackURL() {
+    let streamURL = this.props.selectedTrack.stream_url;
+    streamURL = `${streamURL}?client_id=${CLIENT_ID}`;
+    return streamURL;
+  }
+
   render() {
     if (!this.props.selectedTrack) {
       return null;
@@ -69,16 +88,27 @@ class Player extends Component {
 
     return (
       <div className="player">
-        <Sound
+        <ReactSound
+          url={this.getTrackURL()}
           track={this.props.selectedTrack}
           playStatus={this.props.playStatus}
           playFromPosition={this.state.playFromPosition}
+          onLoading={this.onLoading}
           onPlaying={this.onPlaying}
           onFinishedPlaying={this.onFinishedPlaying}
+          volumn={50}
         />
-        <ProgressBar
-          {...this.state.trackProgress}
-        />
+
+        <div className="progress-bar-music">
+          <div id="progress-bar-player">
+            <ProgressBarDownload
+              {...this.state.downloadProgress} />
+          </div>
+          <div id="progress-bar-download">
+            <ProgressBar
+              {...this.state.trackProgress} />
+          </div>
+        </div>
 
         <div className="row-bottom">
           <PlayerButtons
