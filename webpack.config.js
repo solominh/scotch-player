@@ -11,7 +11,7 @@ const config = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath:ASSET_PATH,
+    publicPath: ASSET_PATH,
   },
   module: {
     rules: [
@@ -31,7 +31,12 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)
     }),
-  ]
+  ],
+  resolve: {
+    alias: {
+      soundmanager2: 'soundmanager2/script/soundmanager2-nodebug-jsmin.js'
+    },
+  },
 };
 
 module.exports = config;
