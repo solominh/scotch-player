@@ -81,6 +81,10 @@ class Player extends Component {
     return streamURL;
   }
 
+  onProgressBarClick = (e) => {
+    console.log(e)
+  }
+
   render() {
     if (!this.props.selectedTrack) {
       return null;
@@ -99,7 +103,9 @@ class Player extends Component {
           volume={10}
         />
 
-        <div className="progress-bar-music">
+        <div className="progress-bar-music"
+          onClick={this.onProgressBarClick}
+        >
           <div id="progress-bar-player">
             <ProgressBarDownload
               {...this.state.downloadProgress} />
