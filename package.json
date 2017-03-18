@@ -30,6 +30,7 @@
     "classnames": "^2.2.3",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",
+    "rc-slider": "^6.2.0",
     "react": "^15.4.2",
     "react-autocomplete": "^1.0.0-rc2",
     "react-dom": "^15.4.2",
@@ -50,9 +51,11 @@
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "bootstrap": "^3.3.7",
+    "css-loader": "^0.27.3",
     "electron": "^1.6.1",
     "electron-packager": "^8.5.2",
     "font-awesome": "^4.7.0",
+    "style-loader": "^0.14.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }

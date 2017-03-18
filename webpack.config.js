@@ -23,6 +23,10 @@ const config = {
         //   presets: [['es2015', { modules: false }]],
         //   plugins: []
         // }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       }
     ]
   },
@@ -34,6 +38,7 @@ const config = {
   ],
   resolve: {
     alias: {
+      // Hide ReactSound logs
       soundmanager2: 'soundmanager2/script/soundmanager2-nodebug-jsmin.js'
     },
   },
