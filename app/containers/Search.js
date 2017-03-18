@@ -11,20 +11,20 @@ function mapStateToProps({ searchedTracks }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    search: _.debounce((...args) => {
-      dispatch(search(...args));
-    }, 300),
-    selectSong: (...args) => {
-      dispatch(selectSong(...args));
-    }
-  }
-  // return bindActionCreators(
-  //   {
-  //     search,
-  //     selectSong,
-  //   },
-  //   dispatch);
+  // return {
+  //   search: _.debounce((...args) => {
+  //     dispatch(search(...args));
+  //   }, 300),
+  //   selectSong: (...args) => {
+  //     dispatch(selectSong(...args));
+  //   }
+  // }
+  return bindActionCreators(
+    {
+      search,
+      selectSong,
+    },
+    dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
