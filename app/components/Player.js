@@ -7,6 +7,7 @@ import ReactSound from 'react-sound';
 import ProgressBar from '../components/ProgressBar';
 import ProgressBarDownload from '../components/ProgressBarDownload'
 import ProgressTime from '../components/ProgressTime';
+import VolumeButton from '../components/VolumeButton';
 
 import { SOUNDCLOUD_CLIENT_ID as CLIENT_ID } from '../constants/APIKeys';
 
@@ -25,6 +26,7 @@ class Player extends Component {
         duration: 0,
         position: 0,
       },
+      volume: 100,
     }
   }
 
@@ -85,6 +87,12 @@ class Player extends Component {
     console.log(e)
   }
 
+  onVolumeChange = (volume) => {
+    this.setState(() => {
+      return { volume }
+    })
+  }
+
   render() {
     if (!this.props.selectedTrack) {
       return null;
@@ -100,7 +108,7 @@ class Player extends Component {
           onLoading={this.onLoading}
           onPlaying={this.onPlaying}
           onFinishedPlaying={this.onFinishedPlaying}
-          volume={10}
+          volume={this.state.volume}
         />
 
         <div className="progress-bar-music"
@@ -124,6 +132,10 @@ class Player extends Component {
           />
           <ProgressTime
             {...this.state.trackProgress}
+          />
+          <VolumeButton
+            volume={this.state.volume}
+            onVolumeChange={this.onVolumeChange}
           />
         </div>
 
