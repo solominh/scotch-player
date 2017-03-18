@@ -15,8 +15,22 @@ class VolumeButton extends React.PureComponent {
   }
 
   onVolumeButtonClick = () => {
+    // Cache volume
+    if (this.props.volume > 0) this.prevVolume = this.props.volume;
+
+    const volume = this.props.volume <= 0 ? (this.prevVolume || 100) : 0;
+    this.props.onVolumeChange(volume);
+  }
+
+  onVolumeButtonMouseOver = () => {
     this.setState((prevState, props) => {
-      return { isSliderVisible: !prevState.isSliderVisible };
+      return { isSliderVisible: true };
+    })
+  }
+
+  onVolumeButtonMouseOut = () => {
+    this.setState((prevState, props) => {
+      return { isSliderVisible: false };
     })
   }
 
@@ -35,32 +49,36 @@ class VolumeButton extends React.PureComponent {
   render() {
     const volume = this.props.volume;
     const volumeClassNames = ClassNames({
-      'fa fa-volume-off': volume <= 10,
-      'fa fa-volume-down': volume > 10 && volume <= 70,
-      'fa fa-volume-up': volume > 70,
+      'fa fa-volume-off': volume < 25,
+      'fa fa-volume-down': volume >= 25 && volume <= 75,
+      'fa fa-volume-up': volume > 75,
     });
 
     return (
-      <div className="volume-button">
+      <div className="volume-button"
+        onMouseOver={this.onVolumeButtonMouseOver}
+        onMouseOut={this.onVolumeButtonMouseOut}
+      >
         <button
           className="player-btn"
           onClick={this.onVolumeButtonClick}>
           <i className={volumeClassNames}></i>
         </button>
-        {this.state.isSliderVisible &&
-          <div className="sound-slider" >
-            <Slider
-              vertical
-              min={0}
-              max={100}
-              included={false}
-              defaultValue={this.props.volume}
-              onBeforeChange={this.onBeforeChange}
-              onChange={this.onChange}
-              onAferChange={this.onAfterChange}
-            />
-          </div>
-        }
+        <div className="sound-slider"
+          onMouseOver={this.onVolumeButtonMouseOver}
+          onMouseOut={this.onVolumeButtonMouseOut}
+          style={{ visibility: this.state.isSliderVisible ? 'visible' : 'hidden' }}>
+          <Slider
+            vertical
+            min={0}
+            max={100}
+            included={false}
+            value={this.props.volume}
+            onBeforeChange={this.onBeforeChange}
+            onChange={this.onChange}
+            onAferChange={this.onAfterChange}
+          />
+        </div>
       </div>
     )
   }
@@ -69,7 +87,7 @@ class VolumeButton extends React.PureComponent {
 
 VolumeButton.PropTypes = {
   volume: PropTypes.number,
-  onVolumeChange:PropTypes.func,
+  onVolumeChange: PropTypes.func,
 }
 
 export default VolumeButton;
