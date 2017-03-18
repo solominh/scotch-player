@@ -118,6 +118,31 @@
     margin: 0px;
     position: absolute;
     top: -110px;
-    left: -8px;
+    left: -5px;
     padding: 15px;
+}
+
+.fb {
+    background-image: url(../img/buttons.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.fb-volume-0 {
+    background-position: -25px -441px;
+}
+
+.fb-volume-25 {
+    background-position: -24px -417px;
+}
+
+.fb-volume-50 {
+    background-position: 0 -441px;
+}
+
+.fb-volume-75 {
+    background-position: 0 -466px;
 }

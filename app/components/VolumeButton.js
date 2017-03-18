@@ -48,11 +48,24 @@ class VolumeButton extends React.PureComponent {
 
   render() {
     const volume = this.props.volume;
-    const volumeClassNames = ClassNames({
-      'fa fa-volume-off': volume < 25,
-      'fa fa-volume-down': volume >= 25 && volume <= 75,
-      'fa fa-volume-up': volume > 75,
-    });
+    // const volumeClassNames = ClassNames({
+    //   'fa fa-volume-off': volume < 25,
+    //   'fa fa-volume-down': volume >= 25 && volume <= 75,
+    //   'fa fa-volume-up': volume > 75,
+    // });
+
+    let volumeClassNames;
+    if (volume <= 0) {
+      volumeClassNames = "fb-volume-0"
+    } else if (volume <= 33) {
+      volumeClassNames = "fb-volume-25"
+    } else if (volume <= 66) {
+      volumeClassNames = "fb-volume-50"
+    } else {
+      volumeClassNames = "fb-volume-75"
+    }
+
+    volumeClassNames+=" fb";
 
     return (
       <div className="volume-button"
